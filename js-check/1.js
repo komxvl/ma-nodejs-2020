@@ -1,5 +1,5 @@
 const my_number = -1;
-myNumber = 0;
+var myNumber = 0;
 var number = 3;
 if (true) {
     let my_number = 1;
