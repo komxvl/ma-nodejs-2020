@@ -3,45 +3,74 @@
 class Storage {
 
     constructor() { }
-    list() {
-        return new Promise((resolve, reject) => {
+
+    async list() {
+
+        const response = await new Promise((resolve, reject) => {
             resolve([1, 2, 3, 4, 56, 12]);
         });
+
+        return response;
     }
 
-    fetchKey(key) {
-        return new Promise((resolve, reject) => {
+    async fetchKey(key) {
+
+        const response = await new Promise((resolve, reject) => {
             resolve({ 'key': key });
         });
+
+        return response;
     }
 
-    store(key, data) {
-        return new Promise((resolve, reject) => {
+    async store(key, data) {
+
+        const response = await new Promise((resolve, reject) => {
             resolve({ 'data': data });
         });
+
+        return response;
     }
 
-    destroy(key) {
-        return new Promise((resolve, reject) => {
+    async destroy(key) {
+
+        const response = await new Promise((resolve, reject) => {
             resolve({ 'data': key });
         });
+
+        return response;
     }
 
-    storeList([{ key, data }]) {
-        return new Promise((resolve, reject) => {
+    async storeList([{ key, data }]) {
+
+        const response = await new Promise((resolve, reject) => {
             resolve([{ key, data }]);
         });
+
+        return response;
     }
 
-    destroyStartedWith(beginningOfKey) {
-        return new Promise((resolve, reject) => {
-            resolve([{ key, data }]);
+    async destroyStartedWith(beginningOfKey) {
+
+        const someObj = { '1test': 'test', 'qwe': '12', '11': 222 }
+
+        const response = await new Promise((resolve, reject) => {
+
+            Object.keys(someObj).forEach((key) => {
+                if (key.match(beginningOfKey)) delete someObj[key];
+            });
+
+            resolve(someObj);
         });
+
+        return response;
     }
 
-    fetchInTimeOrFail(key, timeout) {
-        return new Promise((resolve, reject) => {
+    async fetchInTimeOrFail(key, timeout) {
+
+        const response = await new Promise((resolve, reject) => {
             timeout > 120 ? reject(new Error(`error`)) : resolve(console.log('response'))
         });
+
+        return response;
     }
 }
