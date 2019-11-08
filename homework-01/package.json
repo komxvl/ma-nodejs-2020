@@ -4,6 +4,8 @@
   "description": "First homework, setup project ",
   "main": "index.js",
   "scripts": {
+    "pre-commit": "npm run lint",
+    "pre-push": "npm test",
     "lint": "eslint --ignore-path .gitignore . --fix"
   },
   "repository": {
@@ -11,9 +13,7 @@
     "url": "https://github.com/komxvl/ma-nodejs-2020/tree/homework-01/homework-01"
   },
   "author": "Maksym Kostiuchenko",
-  "license": "ISC",
-  "pre-commit": "npm run lint",
-  "pre-push": "npm test",
+  "license": "ISC",  
   "devDependencies": {
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
