@@ -4,8 +4,8 @@
   "description": "First homework, setup project ",
   "main": "index.js",
   "scripts": {
-    "pre-commit": "npm run lint",
-    "pre-push": "npm test",
+    "precommit": "npm run lint",
+    "prepush": "npm test",
     "lint": "eslint --ignore-path .gitignore . --fix"
   },
   "repository": {
