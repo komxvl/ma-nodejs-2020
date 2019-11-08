@@ -1,0 +1,26 @@
+{
+  "name": "firsthomework",
+  "version": "1.0.0",
+  "description": "First homework, setup project ",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/komxvl/ma-nodejs-2020/tree/homework-01/homework-01"
+  },
+  "author": "Maksym Kostiuchenko",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "nanoid": "^2.1.6"
+  }
+}
