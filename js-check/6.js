@@ -3,9 +3,8 @@ const second = [6, 7, 8, 9, 0];
 
 const array3 = new Array();
 
-for (var i = 0; i < first.length; i++) {
-    array3.push(second[i]);
+for (var i = first.length-1; i >= 0; i--) {
     array3.push(first[i]);
-
+    array3.push(second[i]);
 }
-console.log(array3.reverse());
+console.log(array3);
