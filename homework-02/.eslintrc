@@ -7,7 +7,7 @@
         "node": true
     },
     "rules": {
-        "no-console": "off"   
+        "no-console": 1   
     },
     "plugins": [
         "prettier"
