@@ -1,7 +1,7 @@
 setPromiseTimeout = (interval, text) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-     resolve(text);
+      resolve(text);
     }, interval);
   });
 };
