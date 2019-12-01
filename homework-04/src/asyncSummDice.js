@@ -9,8 +9,8 @@ const asyncVariant = async () => {
       setTimeout(() => {
         resolve(console.log(`Summ ${firstNumber + secondNumber}`));
       }, 3000);
-        reject(console.log(`Error`));
-    })
+      reject(console.log(`Error`));
+    });
   } catch (e) {
     console.log(`Error ${e}`);
   }
