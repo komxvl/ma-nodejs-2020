@@ -1,15 +1,9 @@
 const asyncVariant = require('./asyncSummDice');
-const promiseSumDice = require('./promiseSummDice');
-const generateFirstNumber = require('./callBackSummDice');
+const promiseVariant = require('./promiseSummDice');
+const callBackVariant = require('./callBackSummDice');
 
-setTimeout(() => {
-  generateFirstNumber();
-}, 0);
+callBackVariant();
 
-setTimeout(() => {
-  promiseSumDice();
-}, 5000);
+promiseVariant();
 
-setTimeout(() => {
-  asyncVariant();
-}, 7000);
+asyncVariant();

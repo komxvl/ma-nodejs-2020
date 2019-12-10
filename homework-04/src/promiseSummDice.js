@@ -1,24 +1,13 @@
 const promiseDice = require('./promiseDice');
 
 const promiseSumDice = () => {
-  console.log('promiseSumDice');
-  const firstNumber = promiseDice(700);
-  const secondNumber = promiseDice(2000);
-
-  Promise.all([firstNumber, secondNumber]).then(
-    (values) => {
+  return promiseDice(700).then((firstNumber) => {
+    return promiseDice(2000).then((secondNumber) => {
       setTimeout(() => {
-        console.log(
-          `Summ = ${values.reduce(function(acc, val) {
-            return acc + val;
-          })}`,
-        );
+        console.log(`Summa: ${firstNumber + secondNumber}`);
       }, 3000);
-    },
-    (reason) => {
-      console.log(reason);
-    },
-  );
+    });
+  });
 };
 
 module.exports = promiseSumDice;

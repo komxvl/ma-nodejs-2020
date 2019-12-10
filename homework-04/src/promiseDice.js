@@ -1,14 +1,14 @@
-const throwDice = require('./randomGenerator');
+const rndGenerator = require('./rndGenerator');
 
 const promiseDice = (interval) => {
   return new Promise((resolve, reject) => {
-    const number = throwDice();
-    if (number === 0) {
-      reject('Lost dice');
+    const randomNumber = rndGenerator();
+    if (randomNumber === 0) {
+      reject(new Error(`Lost dice`));
     } else {
-      resolve(number);
       setTimeout(() => {
-        console.log(`number ${number}`);
+        resolve(randomNumber);
+        console.log(`Number: ${randomNumber}`);
       }, interval);
     }
   });

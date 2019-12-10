@@ -1,32 +1,27 @@
 const throwDice = require('./randomGenerator');
 
-function generateFirstNumber(firstNumber) {
-  if (firstNumber === 0) {
-    console.log(new Error('Lost dice1'));
-  } else {
-    setTimeout(() => {
-      console.log('number', firstNumber);
-    }, 700);
-    const secondNumber = throwDice();
-    if (secondNumber === 0) {
-      console.log(new Error('Lost dice2'));
-    } else {
-      setTimeout(() => {
-        console.log('secondNumber', secondNumber);
+showResult = () => {
+  setTimeout(() => {
+    throwDice((error, firstNumber) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(`First ${firstNumber}`);
         setTimeout(() => {
-          const sum = firstNumber + secondNumber;
-          console.log('sum', sum);
+          throwDice((secondError, secondNumber) => {
+            if (secondError) {
+              console.log(secondError);
+            } else {
+              console.log(`Second ${secondNumber}`);
+              setTimeout(() => {
+                console.log(`Sum is ${firstNumber + secondNumber}`);
+              }, 2000);
+            }
+          });
         }, 3000);
-      }, 2000);
-    }
-  }
-}
-
-const firstNumber = throwDice();
-
-function showResult() {
-  console.log(`callback`);
-  generateFirstNumber(firstNumber);
-}
+      }
+    });
+  }, 700);
+};
 
 module.exports = showResult;
