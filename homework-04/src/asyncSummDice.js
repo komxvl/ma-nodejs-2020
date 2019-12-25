@@ -1,18 +1,16 @@
 const promiseDice = require('./promiseDice');
 
 const asyncVariant = async () => {
-  try {
-    const firstNumber = await promiseDice(700);
-    const secondNumber = await promiseDice(2000);
-    await new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(console.log(`Summ ${firstNumber + secondNumber}`));
-      }, 3000);
-      reject(new Error(`Lost dice`));
-    });
-  } catch (e) {
+  const firstNumber = await promiseDice(700);
+  const secondNumber = await promiseDice(1300);
+  try{
+    setTimeout(() => {
+      console.log(`Summ ${firstNumber + secondNumber}`);
+    }, 1000);
+  }
+  catch(e){
     console.log(new Error(`Lost dice`));
   }
 };
 
-module.exports = asyncVariant;
+asyncVariant();

@@ -15,13 +15,13 @@ showResult = () => {
               console.log(`Second ${secondNumber}`);
               setTimeout(() => {
                 console.log(`Sum is ${firstNumber + secondNumber}`);
-              }, 2000);
+              }, 1000);
             }
           });
-        }, 3000);
+        }, 1300);
       }
     });
   }, 700);
 };
 
-module.exports = showResult;
+showResult();

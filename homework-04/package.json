@@ -2,9 +2,11 @@
   "name": "homework-04",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/callBackSummDice.js",
   "scripts": {
-    "start": "node src/app.js",
+    "cb": "node src/callBackSummDice.js",
+    "aw": "node src/asyncSummDice.js",
+    "ps": "node src/promiseSummDice.js",  
     "precommit": "npm run lint",
     "prepush": "npm test",
     "lint": "eslint --ignore-path .gitignore . --fix"
