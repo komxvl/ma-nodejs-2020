@@ -2,11 +2,9 @@ const os = require('os');
 
 // set env for WindowOS $env:FOO = 'BAR'; ./myscript
 
-const RATE = process.env.RATE || 1000;
-const LIMIT = process.env.LIMIT || 300;
-const COLOR = process.env.COLOR || true;
-
-// run(RATE, LIMIT, COLOR);
+let RATE = process.env.RATE || 1000;
+let LIMIT = process.env.LIMIT || 300;
+let COLOR = process.env.COLOR || true;
 
 function run(rate, limit, color) {
   let oldMemory = 0;
@@ -39,23 +37,21 @@ function run(rate, limit, color) {
   }, rate);
 }
 
-const obj = {};
 
 process.argv.forEach((val, index) => {
-  obj[val.split('=')[0]] = val.split('=')[1];
+  console.log(val)
+  const itemVal = val.split('=');
+  console.log('itemVal', itemVal);
+  const envValue = itemVal[0];
+  if(envValue == 'rate'){
+    RATE = itemVal[1]
+  }
+  else if(envValue == 'limit'){
+    LIMIT = itemVal[1]
+  }
+  else if(envValue == 'color'){
+    COLOR =  itemVal[1];
+  }
 });
-console.log('obj', obj);
 
-let rate;
-let limit;
-let color;
-
-Object.keys(obj).map((key, index) => {
-  console.log('key...');
-});
-
-console.log(obj);
-
-// Task with *
-
-// run(rate, limit, color)
+ run(RATE, LIMIT, COLOR)
