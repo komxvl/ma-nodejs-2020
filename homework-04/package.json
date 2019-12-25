@@ -1,0 +1,26 @@
+{
+  "name": "homework-04",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/callBackSummDice.js",
+  "scripts": {
+    "cb": "node src/callBackSummDice.js",
+    "aw": "node src/asyncSummDice.js",
+    "ps": "node src/promiseSummDice.js",  
+    "precommit": "npm run lint",
+    "prepush": "npm test",
+    "lint": "eslint --ignore-path .gitignore . --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.7.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.1.0",
+    "prettier": "^1.19.1"
+  }
+}
