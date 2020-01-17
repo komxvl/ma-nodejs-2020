@@ -9,7 +9,10 @@
     "rules": {
         "no-console":"off",
         "no-undef":"off",
-        "no-plusplus":"off"
+        "no-plusplus":"off",
+        "new-cap": "off",
+        "valid-typeof":"off"
+
     },
     "plugins": [
         "prettier"
