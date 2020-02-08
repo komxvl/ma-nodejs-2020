@@ -8,10 +8,13 @@ const rs = fs.createReadStream(config.filePath)//, { highWaterMark: config.highW
 const rate = Math.max(config.rate, config.minRate);
 const limiter = new Limiter(rate);
 
-
-module.exports.sendJPEG = res => {
+function sendJPEG(res){
   pipeline(rs, limiter, res, err => {
     if (err) console.error(err);
     console.log('Success!');
   });
+}
+
+module.exports = {
+  sendJPEG
 };
