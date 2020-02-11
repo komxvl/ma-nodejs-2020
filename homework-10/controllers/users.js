@@ -15,9 +15,9 @@ function getUsers(response) {
   });
 }
 
-function getCurrentUser(response, request) {
-  console.log(request.params);
-  const id = parseInt(request.params.id);
+function getCurrentUser(response, exampleId) {
+  console.log(exampleId);
+  const id = parseInt(exampleId);
   client.query('SELECT * FROM users WHERE id = $1', [id], function(err, result) {
     console.log(result.rows);
     if (err) {

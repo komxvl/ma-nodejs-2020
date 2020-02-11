@@ -1,4 +1,7 @@
 const http = require('http');
+var url = require('url');
+const querystring = require('querystring');
+
 const config = require('../config/serverConfig');
 // const { endResponse } = require('./heplers/helpers');
 const client = require('../config/queries');
@@ -9,25 +12,21 @@ function handleRequest(request, response) {
     console.error('Response error:', err.stack);
     // endResponse(response, 500);
   });
+  var url_parts = url.parse(request.url, true);
+  var str = request.url;
+    var exampleId = str.split("/")[2];
+    console.log(exampleId)
+    console.log(url_parts)
   if (request.url === '/') {
-    client.query('SELECT * FROM users', function(err, result) {
-      console.log(result.rows);
-      if (err) {
-        console.log(err);
-        response.statusCode = 500;
-        response.send({ error: 'Error...' });
-      } else {
-        response.statusCode = 200;
-        response.write(JSON.stringify(result.rows));
+    response.statusCode = 200;
+        response.write(JSON.stringify('Hello world'));
         response.end();
-      }
-    });
   }
-  if (request.url === '/users') {
+  else if (request.url === '/users') {
     users.getUsers(response);
   }
-  if (request.url === '/users/:id') {
-    users.getCurrentUser(response, request);
+  else if (exampleId) {
+    users.getCurrentUser(response, exampleId);
   }
   // endResponse(response, 404);
 }
