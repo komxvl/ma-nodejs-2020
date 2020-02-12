@@ -9,24 +9,26 @@ const users = require('../controllers/users');
 
 function handleRequest(request, response) {
   response.on('error', (err) => {
-    console.error('Response error:', err.stack);
+    // console.error('Response error:', err.stack);
     // endResponse(response, 500);
   });
   var url_parts = url.parse(request.url, true);
   var str = request.url;
-    var exampleId = str.split("/")[2];
-    console.log(exampleId)
-    console.log(url_parts)
+  var exampleId = str.split('/')[2];
   if (request.url === '/') {
     response.statusCode = 200;
-        response.write(JSON.stringify('Hello world'));
-        response.end();
-  }
-  else if (request.url === '/users') {
+    response.write(JSON.stringify('Hello world'));
+    response.end();
+  } else if (request.url === '/users') {
     users.getUsers(response);
-  }
-  else if (exampleId) {
-    users.getCurrentUser(response, exampleId);
+  } else if (exampleId && request.method === 'GET') {
+    users.getUserById(response, exampleId);
+  } else if (request.url === '/createUser') {
+    users.createUser(response, request);
+  } else if (request.method === 'DELETE' && exampleId) {
+    users.deleteUserById(response, exampleId);
+  } else if (request.method === 'PUT') {
+    users.updateUser(response, request);
   }
   // endResponse(response, 404);
 }
